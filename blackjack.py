@@ -66,9 +66,9 @@ class Blackjack():
 
         total = 0
         for card in find_value_deck:
-            if int(card[0]) in range(10, 14):
+            if int(card[0]) >= 10:
                 total += 10
-            elif int(card[0]) in range(2, 9):
+            elif int(card[0]) >= 2 and int(card[0]) <= 9:
                 total += int(card[0])
             elif int(card[0]) == 1:
                 if count_aces:
@@ -82,17 +82,20 @@ class Blackjack():
 
     def deal_cards(self):
         """ Deal 2 cards to each the player and dealer & remove them from the deck """
-        for i in range(1, 3):
-            # Deal the card to the dealer, & take it from the deck
-            card_dealt = random.randint(0, len(self.card_deck) - 1)
-            self.dealer_cards.append(self.card_deck[card_dealt])
-            self.card_deck.remove(self.card_deck[card_dealt])
-        
-        for I in range(1, 3):
-            # Deal the card to the player, & take it from the deck
-            card_dealt = random.randint(0, len(self.card_deck) - 1)
-            self.player_cards.append(self.card_deck[card_dealt])
-            self.card_deck.remove(self.card_deck[card_dealt])
+        if len(self.card_deck) < 4:  # Check if there are at least 4 cards left in the deck
+            self.reset_cards()  # If there are fewer than 4 cards, reset the deck
+        else:
+            for _ in range(2):
+                # Deal 2 cards to the dealer
+                card_dealt = random.randint(0, len(self.card_deck) - 1)
+                self.dealer_cards.append(self.card_deck[card_dealt])
+                self.card_deck.pop(card_dealt)
+
+            for _ in range(2):
+                # Deal 2 cards to the player
+                card_dealt = random.randint(0, len(self.card_deck) - 1)
+                self.player_cards.append(self.card_deck[card_dealt])
+                self.card_deck.pop(card_dealt)
 
     def display_game_status(self):
         """ Display the game status (money, dealer money, cards, dealer cards) """
@@ -146,6 +149,9 @@ class Blackjack():
     def dealer_turn(self):
         """ Controling Dealers turn """
         while True:
+            if not self.card_deck:
+                self.reset_cards()
+
             if self.find_total(False)[0] >= 16:
                 # Deal the card to the dealer, & take it from the deck
                 card_dealt = random.randint(0, len(self.card_deck) - 1)
@@ -153,6 +159,7 @@ class Blackjack():
                 self.card_deck.remove(self.card_deck[card_dealt])
             else:
                 break
+
 
     def check_win(self):
         """ Checking Who won that round """
