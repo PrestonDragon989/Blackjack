@@ -122,7 +122,7 @@ class Blackjack():
             print(f"\n{Style.BRIGHT}Dealer Cards: {Style.NORMAL}{self.find_total(False)}")
         for card in self.dealer_cards:
             if card == self.dealer_cards[0] and not show_dealer_card:
-                print(f"\t {Fore.LIGHTBLACK_EX}(Hidden Card)")
+                print(f"\t {Fore.LIGHTBLACK_EX}(Hidden Card){Fore.RESET}")
             else:
                 print("\t", card[1])
 
