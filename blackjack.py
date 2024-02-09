@@ -1,6 +1,6 @@
 """ Blackjack Game File """
+# Import random for shuffleing, & Colorama for Colors
 import random
-#import colorama
 from colorama import Fore, Style
 
 class Blackjack():
@@ -64,6 +64,7 @@ class Blackjack():
             if int(card[0]) >= 10:
                 total += 10
             elif int(card[0]) >= 2 and int(card[0]) <= 9:
+                print(card[0])
                 total += int(card[0])
             elif int(card[0]) == 1:
                 if count_aces:
@@ -166,7 +167,7 @@ class Blackjack():
         while True:
             if self.find_total(False)[0] <= 16:
                 # Deal the card to the dealer, & take it from the deck
-                card_dealt = random.randint(0, len(self.card_deck))
+                card_dealt = random.randint(0, len(self.card_deck) - 1)
                 self.dealer_cards.append(self.card_deck[card_dealt])
                 self.card_deck.remove(self.card_deck[card_dealt])
             else:
@@ -222,7 +223,7 @@ class Blackjack():
 
         # Gameloop
         print("\n")
-        while self.money >= 0 or self.dealer_money >= 0:
+        while self.money > 0 and self.dealer_money > 0:
             # Print Turn Number
             print(f"\nThis is turn number {Style.BRIGHT}{self.turn_number}{Style.NORMAL}!\n")
 
