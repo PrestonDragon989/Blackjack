@@ -1,5 +1,7 @@
 """ Blackjack Game File """
 import random
+#import colorama
+from colorama import Fore, Style
 
 class Blackjack():
     """ Class for the game blackjack """
@@ -12,10 +14,10 @@ class Blackjack():
 
         # Card Decks
         self.all_cards = [
-            ["1", "Ace - Spades"], ["2", "2 - Spades"], ["3", "3 - Spades"], ["4", "4 - Spades"], ["5", "5 - Spades"], ["6", "6 - Spades"], ["7", "7 - Spades"], ["8", "8 - Spades"], ["9", "9 - Spades"], ["10", "10 - Spades"], ["11", "Jack - Spades"], ["12", "Queen - Spades"], ["13", "King - Spades"], # Spades
-            ["1", "Ace - Diamonds"], ["2", "2 - Diamonds"], ["3", "3 - Diamonds"], ["4", "4 - Diamonds"], ["5", "5 - Diamonds"], ["6", "6 - Diamonds"], ["7", "7 - Diamonds"], ["8", "8 - Diamonds"], ["9", "9 - Diamonds"], ["10", "10 - Diamonds"], ["11", "Jack - Diamonds"], ["12", "Queen - Diamonds"], ["13", "King - Diamonds"], # Diamonds
-            ["1", "Ace - Clubs"], ["2", "2 - Clubs"], ["3", "3 - Clubs"], ["4", "4 - Clubs"], ["5", "5 - Clubs"], ["6", "6 - Clubs"], ["7", "7 - Clubs"], ["8", "8 - Clubs"], ["9", "9 - Clubs"], ["10", "10 - Clubs"], ["11", "Jack - Clubs"], ["12", "Queen - Clubs"], ["13", "King - Clubs"], # Clubs
-            ["1", "Ace - Hearts"], ["2", "2 - Hearts"], ["3", "3 - Hearts"], ["4", "4 - Hearts"], ["5", "5 - Hearts"], ["6", "6 - Hearts"], ["7", "7 - Hearts"], ["8", "8 - Hearts"], ["9", "9 - Hearts"], ["10", "10 - Hearts"], ["11", "Jack - Hearts"], ["12", "Queen - Hearts"], ["13", "King - Hearts"]  # Hearts
+            ["1", f"Ace - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], ["2", f"2 - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], ["3", f"3 - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], ["4", f"4 - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], ["5", f"5 - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], ["6", f"6 - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], ["7", f"7 - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], ["8", f"8 - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], ["9", f"9 - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], ["10", f"10 - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], ["11", f"Jack - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], ["12", f"Queen - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], ["13", f"King - {Fore.LIGHTMAGENTA_EX}Spades{Fore.RESET}"], # Spades
+            ["1", f"Ace - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], ["2", f"2 - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], ["3", f"3 - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], ["4", f"4 - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], ["5", f"5 - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], ["6", f"6 - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], ["7", f"7 - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], ["8", f"8 - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], ["9", f"9 - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], ["10", f"10 - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], ["11", f"Jack - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], ["12", f"Queen - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], ["13", f"King - {Fore.LIGHTBLUE_EX}Diamonds{Fore.RESET}"], # Diamonds
+            ["1", f"Ace - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], ["2", f"2 - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], ["3", f"3 - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], ["4", f"4 - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], ["5", f"5 - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], ["6", f"6 - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], ["7", f"7 - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], ["8", f"8 - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], ["9", f"9 - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], ["10", f"10 - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], ["11", f"Jack - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], ["12", f"Queen - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], ["13", f"King - {Fore.LIGHTGREEN_EX}Clubs{Fore.RESET}"], # Clubs
+            ["1", f"Ace - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"], ["2", f"2 - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"], ["3", f"3 - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"], ["4", f"4 - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"], ["5", f"5 - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"], ["6", f"6 - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"], ["7", f"7 - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"], ["8", f"8 - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"], ["9", f"9 - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"], ["10", f"10 - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"], ["11", f"Jack - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"], ["12", f"Queen - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"], ["13", f"King - {Fore.LIGHTRED_EX}Hearts{Fore.RESET}"]  # Hearts
         ]
         self.card_deck = self.all_cards
         self.player_cards = []
@@ -38,13 +40,6 @@ class Blackjack():
                     self.dealer_money = int(new_amount)
                     break
             print("That is not a valid amount. Amount must be higher than zero.")
-
-    def game_over(self):
-        """ Checking to see if anyone won """
-        if self.dealer_money <= 0 or self.money <= 0:
-            return True
-        else:
-            return False
 
     def reset_cards(self):
         """ Shuffle Deck & Collect Cards """
@@ -72,7 +67,7 @@ class Blackjack():
                 total += int(card[0])
             elif int(card[0]) == 1:
                 if count_aces:
-                    total = [total + 11, total + 1]
+                    total = [total + 1, total + 11]
                 else:
                     total += 11
 
@@ -82,79 +77,97 @@ class Blackjack():
 
     def deal_cards(self):
         """ Deal 2 cards to each the player and dealer & remove them from the deck """
-        if len(self.card_deck) < 4:  # Check if there are at least 4 cards left in the deck
-            self.reset_cards()  # If there are fewer than 4 cards, reset the deck
-        else:
-            for _ in range(2):
-                # Deal 2 cards to the dealer
-                card_dealt = random.randint(0, len(self.card_deck) - 1)
-                self.dealer_cards.append(self.card_deck[card_dealt])
-                self.card_deck.pop(card_dealt)
+        for _ in range(2):
+            # Deal 2 cards to the dealer
+            card_dealt = random.randint(0, len(self.card_deck) - 1)
+            self.dealer_cards.append(self.card_deck[card_dealt])
+            self.card_deck.pop(card_dealt)
 
-            for _ in range(2):
-                # Deal 2 cards to the player
-                card_dealt = random.randint(0, len(self.card_deck) - 1)
-                self.player_cards.append(self.card_deck[card_dealt])
-                self.card_deck.pop(card_dealt)
+        for _ in range(2):
+            # Deal 2 cards to the player
+            card_dealt = random.randint(0, len(self.card_deck) - 1)
+            self.player_cards.append(self.card_deck[card_dealt])
+            self.card_deck.pop(card_dealt)
 
-    def display_game_status(self):
-        """ Display the game status (money, dealer money, cards, dealer cards) """
-        print(f"Your Money: {self.money}    Dealer Money: {self.dealer_money}")
-        
+    def display_begging_game_status(self):
+        """ Display the game status (current bet, cards, dealer cards) """        
+        # Printing current bet
+        print(f"\nCurrent bet: {Fore.CYAN}{Style.BRIGHT}{self.money_bet}{Fore.RESET}{Style.NORMAL}")
+
         # Show player their cards
-        print(f"Your Cards:   Total: {self.find_total()}")
+        print(f"{Style.BRIGHT}Your Cards:   Total: {Style.BRIGHT}{self.find_total()}")
         for card in self.player_cards:
             print("\t", card[1])
 
         # Display visible dealer cards
-        print("\nDealer Cards:")
+        print(f"\n{Style.BRIGHT}Dealer Cards:{Style.NORMAL}")
         for card in self.dealer_cards:
             if card == self.dealer_cards[0]:
-                print("\t (Hidden Card)")
+                print(f"\t {Fore.LIGHTBLACK_EX}(Hidden Card){Fore.RESET}")
             else:
                 print("\t", card[1])
 
-    def get_choice(self):
-        """ Getting Player Choice (Getting new cards, betting amount) """
+    def display_game_status(self, show_dealer_card = False):
+        """ Display Current Game Status """
+        # Show player their cards
+        print(f"{Style.BRIGHT}Your Cards:   Total: {Style.NORMAL}{self.find_total()}")
+        for card in self.player_cards:
+            print("\t", card[1])
+
+        # Display visible dealer cards
+        if not show_dealer_card:
+            print(f"\n{Style.BRIGHT}Dealer Cards:{Style.NORMAL}")
+        else:
+            print(f"\n{Style.BRIGHT}Dealer Cards: {Style.NORMAL}{self.find_total(False)}")
+        for card in self.dealer_cards:
+            if card == self.dealer_cards[0] and not show_dealer_card:
+                print(f"\t {Fore.LIGHTBLACK_EX}(Hidden Card)")
+            else:
+                print("\t", card[1])
+
+    def get_bet(self):
+        """ Get how much the player wishes to bet """
         # Getting Betting amount of the player
         betting_amount = 0
+        print(f"{Style.BRIGHT}Your money:{Style.NORMAL} {Fore.GREEN}{self.money}{Fore.RESET}   {Style.BRIGHT}Dealer Money:{Style.NORMAL} {Fore.LIGHTMAGENTA_EX}{self.dealer_money}{Fore.RESET}")
         while True:
-            betting_amount = input("How much do you wish to bet? ")
+            betting_amount = input(f"How much do you wish to bet? {Fore.CYAN}{Style.BRIGHT}")
+            print(Fore.RESET + Style.NORMAL, end="")
             if betting_amount.isdigit():
                 if int(betting_amount) <= 0:
-                    print("You need to bet higher than 0!")
+                    print(f"You need to bet {Style.BRIGHT}higher than 0!{Style.NORMAL}")
                 elif int(betting_amount) > self.dealer_money or int(betting_amount) > self.money:
-                    print("You can't bet more than you or the dealer has!")
+                    print(f"You can't bet {Style.BRIGHT}more than you or the dealer has!{Style.NORMAL}")
                 else:
                     self.money_bet = int(betting_amount)
                     break
             else:
                 print("You need to bet a number!")
+  
 
+    def get_choice(self):
+        """ Getting Player Choice (Getting new cards) """
         # Asking player if they wish to hit:
         while True:
-            get_another = input("Input 0 if you wish to hit. Press anything else to continue. ")
-            if get_another == 1:
+            get_another = input(f"{Style.BRIGHT}Input 0{Style.NORMAL} if you wish to{Style.BRIGHT} hit{Style.NORMAL}. Press {Style.BRIGHT}anything else{Style.NORMAL} to continue. ")
+            if get_another == "0":
                 # Deal the card to the player, & take it from the deck
                 card_dealt = random.randint(0, len(self.card_deck) - 1)
                 self.player_cards.append(self.card_deck[card_dealt])
                 self.card_deck.remove(self.card_deck[card_dealt])
-                print(f"You have received a {self.player_cards[-1]}!")
-                for score in self.find_total(True):
-                    if score > 21:
-                        break
+                self.display_game_status(False)
+                if all(num > 21 for num in self.find_total(True)):
+                    print("BREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEAK")
+                    break
             else:
                 break
 
     def dealer_turn(self):
         """ Controling Dealers turn """
         while True:
-            if not self.card_deck:
-                self.reset_cards()
-
-            if self.find_total(False)[0] >= 16:
+            if self.find_total(False)[0] <= 16:
                 # Deal the card to the dealer, & take it from the deck
-                card_dealt = random.randint(0, len(self.card_deck) - 1)
+                card_dealt = random.randint(0, len(self.card_deck))
                 self.dealer_cards.append(self.card_deck[card_dealt])
                 self.card_deck.remove(self.card_deck[card_dealt])
             else:
@@ -202,7 +215,7 @@ class Blackjack():
         """ Start Blackjack """
         # Asking if they want to have a custom betting amount
         while True:
-            print(f"Would you like to change the betting amount? Current amount is {self.money}.")
+            print(f"{Style.BRIGHT}Would you like to change the betting amount? Current amount is{Fore.YELLOW} {self.money}{Fore.RESET}{Style.NORMAL}.")
             change_amount = input("Type 0 to change money amount. Press anything else to move on! ")
             if change_amount == "0":
                 self.custom_betting_amount()
@@ -210,15 +223,18 @@ class Blackjack():
 
         # Gameloop
         print("\n\n")
-        while not self.game_over():
+        while self.money > 0 or self.dealer_money > 0:
             # Print Turn Number
-            print(f"This is turn number {self.turn_number}!\n")
+            print(f"This is turn number {Style.BRIGHT}{self.turn_number}{Style.NORMAL}!\n")
+
+            # Get This turn's bet
+            self.get_bet()
 
             # Deal Cards
             self.deal_cards()
 
             # Display Game Status
-            self.display_game_status()
+            self.display_begging_game_status()
 
             # Getting Input Choice (Betting Amount, Get a new card or don't)
             self.get_choice()
@@ -226,21 +242,24 @@ class Blackjack():
             # Getting Dealer's Turn
             self.dealer_turn()
 
+            # Show The outcome of the turns
+            self.display_game_status(True)
+
             # Checking who won that turn, & dishing out winnings
             if not self.check_win()[0] and self.check_win()[1] == "over":
-                print("You lost that round! You went over!")
+                print(f"You {Style.BRIGHT}lost {Fore.CYAN}{self.money_bet}{Fore.RESET}{Style.NORMAL} that round! {Style.BRIGHT}You went over!{Style.NORMAL}")
                 self.apply_bet(False)
             elif self.check_win()[0] and self.check_win()[1] == "over":
-                print("You won that round! Dealer went over!")
+                print(f"You {Style.BRIGHT}won {Fore.CYAN}{self.money_bet}{Fore.RESET}{Style.NORMAL} that round! {Style.BRIGHT}Dealer went over!{Style.NORMAL}")
                 self.apply_bet(True)
             elif not self.check_win()[0] and self.check_win()[1] == "higher":
-                print("You lost that round! Dealer had a higher Number!")
+                print(f"You {Style.BRIGHT}lost {Fore.CYAN}{self.money_bet}{Fore.RESET}{Style.NORMAL} that round! {Style.BRIGHT}Dealer had a higher Number!{Style.NORMAL}")
                 self.apply_bet(False)
             elif self.check_win()[0] and self.check_win()[1] == "higher":
-                print("You won that round! You had a higher Number!")
+                print(f"You {Style.BRIGHT}won {Fore.CYAN}{self.money_bet}{Fore.RESET}{Style.NORMAL} that round! {Style.BRIGHT}You had a higher Number!{Style.NORMAL}")
                 self.apply_bet(True)
             else:
-                print("Nobody won! It was a tie!")
+                print(f"{Style.BRIGHT}Nobody won{Style.NORMAL} anything! It was a{Style.BRIGHT} tie!{Style.NORMAL}")
                 self.apply_bet()
 
             # Update Turn Number
@@ -250,9 +269,9 @@ class Blackjack():
             self.reset_cards()
 
         if self.money > 0:
-            print("You won the game!")
+            print(f"{Fore.GREEN}{Style.BRIGHT}You won the game!")
         else:
-            print("You lost the game!")
+            print(f"{Fore.RED}{Style.BRIGHT}You lost the game!")
 
 # Starting Game
 if __name__ == "__main__":
