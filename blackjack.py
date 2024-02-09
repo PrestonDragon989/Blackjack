@@ -95,7 +95,7 @@ class Blackjack():
         print(f"\nCurrent bet: {Fore.CYAN}{Style.BRIGHT}{self.money_bet}{Fore.RESET}{Style.NORMAL}")
 
         # Show player their cards
-        print(f"{Style.BRIGHT}Your Cards:   Total: {Style.BRIGHT}{self.find_total()}")
+        print(f"{Style.BRIGHT}Your Cards:   Total: {Style.NORMAL}{self.find_total()}")
         for card in self.player_cards:
             print("\t", card[1])
 
@@ -157,7 +157,6 @@ class Blackjack():
                 self.card_deck.remove(self.card_deck[card_dealt])
                 self.display_game_status(False)
                 if all(num > 21 for num in self.find_total(True)):
-                    print("BREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEAK")
                     break
             else:
                 break
@@ -222,10 +221,10 @@ class Blackjack():
             break
 
         # Gameloop
-        print("\n\n")
-        while self.money > 0 or self.dealer_money > 0:
+        print("\n")
+        while self.money >= 0 or self.dealer_money >= 0:
             # Print Turn Number
-            print(f"This is turn number {Style.BRIGHT}{self.turn_number}{Style.NORMAL}!\n")
+            print(f"\nThis is turn number {Style.BRIGHT}{self.turn_number}{Style.NORMAL}!\n")
 
             # Get This turn's bet
             self.get_bet()
@@ -243,23 +242,24 @@ class Blackjack():
             self.dealer_turn()
 
             # Show The outcome of the turns
+            print("\n")
             self.display_game_status(True)
 
             # Checking who won that turn, & dishing out winnings
             if not self.check_win()[0] and self.check_win()[1] == "over":
-                print(f"You {Style.BRIGHT}lost {Fore.CYAN}{self.money_bet}{Fore.RESET}{Style.NORMAL} that round! {Style.BRIGHT}You went over!{Style.NORMAL}")
+                print(f"You {Style.BRIGHT}{Fore.RED}lost{Fore.RESET} {Fore.CYAN}{self.money_bet}{Fore.RESET}{Style.NORMAL} that round! {Style.BRIGHT}You went over!{Style.NORMAL}\n")
                 self.apply_bet(False)
             elif self.check_win()[0] and self.check_win()[1] == "over":
-                print(f"You {Style.BRIGHT}won {Fore.CYAN}{self.money_bet}{Fore.RESET}{Style.NORMAL} that round! {Style.BRIGHT}Dealer went over!{Style.NORMAL}")
+                print(f"You {Style.BRIGHT}{Fore.LIGHTGREEN_EX}won{Fore.RESET} {Fore.CYAN}{self.money_bet}{Fore.RESET}{Style.NORMAL} that round! {Style.BRIGHT}Dealer went over!{Style.NORMAL}\n")
                 self.apply_bet(True)
             elif not self.check_win()[0] and self.check_win()[1] == "higher":
-                print(f"You {Style.BRIGHT}lost {Fore.CYAN}{self.money_bet}{Fore.RESET}{Style.NORMAL} that round! {Style.BRIGHT}Dealer had a higher Number!{Style.NORMAL}")
+                print(f"You {Style.BRIGHT}{Fore.RED}lost{Fore.RESET} {Fore.CYAN}{self.money_bet}{Fore.RESET}{Style.NORMAL} that round! {Style.BRIGHT}Dealer had a higher Number!{Style.NORMAL}\n")
                 self.apply_bet(False)
             elif self.check_win()[0] and self.check_win()[1] == "higher":
-                print(f"You {Style.BRIGHT}won {Fore.CYAN}{self.money_bet}{Fore.RESET}{Style.NORMAL} that round! {Style.BRIGHT}You had a higher Number!{Style.NORMAL}")
+                print(f"You {Style.BRIGHT}{Fore.LIGHTGREEN_EX}won{Fore.RESET} {Fore.CYAN}{self.money_bet}{Fore.RESET}{Style.NORMAL} that round! {Style.BRIGHT}You had a higher Number!{Style.NORMAL}\n")
                 self.apply_bet(True)
             else:
-                print(f"{Style.BRIGHT}Nobody won{Style.NORMAL} anything! It was a{Style.BRIGHT} tie!{Style.NORMAL}")
+                print(f"{Style.BRIGHT}Nobody won{Style.NORMAL} anything! It was a{Style.BRIGHT} tie!{Style.NORMAL}\n")
                 self.apply_bet()
 
             # Update Turn Number
