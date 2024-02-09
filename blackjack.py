@@ -155,9 +155,9 @@ class Blackjack():
                 card_dealt = random.randint(0, len(self.card_deck) - 1)
                 self.player_cards.append(self.card_deck[card_dealt])
                 self.card_deck.remove(self.card_deck[card_dealt])
-                self.display_game_status(False)
                 if all(num > 21 for num in self.find_total(True)):
                     break
+                self.display_game_status(False)
             else:
                 break
 
