@@ -64,7 +64,6 @@ class Blackjack():
             if int(card[0]) >= 10:
                 total += 10
             elif int(card[0]) >= 2 and int(card[0]) <= 9:
-                print(card[0])
                 total += int(card[0])
             elif int(card[0]) == 1:
                 if count_aces:
